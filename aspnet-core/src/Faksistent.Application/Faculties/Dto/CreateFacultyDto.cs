@@ -1,19 +1,17 @@
-﻿using Abp.Domain.Entities.Auditing;
+﻿using Abp.AutoMapper;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Faksistent.Faculties
+namespace Faksistent.Faculties.Dto
 {
-    public class Faculty : FullAuditedEntity<long>
+    [AutoMapTo(typeof(Faculty))]
+    public class CreateFacultyDto
     {
-        [Required]
         public string Name { get; set; }
 
-        [Required]
         public string ShortName { get; set; }
 
         public string Location { get; set; }
