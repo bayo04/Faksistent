@@ -93,9 +93,10 @@ namespace Faksistent.MultiTenancy
 
         protected override IQueryable<Tenant> CreateFilteredQuery(PagedTenantResultRequestDto input)
         {
-            return Repository.GetAll()
+            return Repository.GetAllIncluding(x => x.Faculty)
                 .WhereIf(!input.Keyword.IsNullOrWhiteSpace(), x => x.TenancyName.Contains(input.Keyword) || x.Name.Contains(input.Keyword))
-                .WhereIf(input.IsActive.HasValue, x => x.IsActive == input.IsActive);
+                .WhereIf(input.IsActive.HasValue, x => x.IsActive == input.IsActive)
+                .WhereIf(input.FacultyId.HasValue, x => x.FacultyId == input.FacultyId);
         }
 
         protected override void MapToEntity(TenantDto updateInput, Tenant entity)

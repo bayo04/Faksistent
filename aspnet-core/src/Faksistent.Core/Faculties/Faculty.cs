@@ -11,11 +11,17 @@ namespace Faksistent.Faculties
     public class Faculty : FullAuditedEntity<long>
     {
         [Required]
+        [MaxLength(64)]
         public string Name { get; set; }
 
         [Required]
+        [MaxLength(16)]
         public string ShortName { get; set; }
 
+        [MaxLength(64)]
         public string Location { get; set; }
+
+        [MaxLength(64)]
+        public string University { get; set; }
     }
 }

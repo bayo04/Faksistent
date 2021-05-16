@@ -25,5 +25,7 @@ namespace Faksistent.MultiTenancy.Dto
         public string ConnectionString { get; set; }
 
         public bool IsActive {get; set;}
+
+        public long? FacultyId { get; set; }
     }
 }
