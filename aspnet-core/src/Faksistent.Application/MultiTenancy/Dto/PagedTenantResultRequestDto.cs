@@ -9,6 +9,8 @@ namespace Faksistent.MultiTenancy.Dto
         public bool? IsActive { get; set; }
 
         public long? FacultyId { get; set; }
+
+        public int DurationInSemesters { get; set; }
     }
 }
 
